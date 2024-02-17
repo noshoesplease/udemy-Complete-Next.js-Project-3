@@ -3,8 +3,6 @@ import axios from "axios";
 
 const PortfolioDetailPage = ({portfolio}) => {
 
-  console.log(portfolio)
-
   return (
     <BaseLayout>
       <h1>Portfolio Detail Page</h1>
