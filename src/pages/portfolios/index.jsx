@@ -1,5 +1,6 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
 import axios from "axios";
+import Link from "next/link";
 
 export default function PortfoliosPage({ portfolios }) {
   return (
@@ -7,7 +8,9 @@ export default function PortfoliosPage({ portfolios }) {
       <h1>Portfolios Page</h1>
       <ul>
         {portfolios.map((portfolio) => (
-          <li key={portfolio.id}>{portfolio.title}</li>
+          <li key={portfolio.id}>
+            <Link href={`/portfolios/${portfolio.id}`}>{portfolio.title}</Link>
+          </li>
         ))}
       </ul>
     </BaseLayout>
