@@ -1,3 +1,9 @@
+Project 3 from https://www.udemy.com/course/awesome-nextjs-with-react-and-node-amazing-portfolio-app/
+
+This project uses Next.js pages router architecture
+
+##################################################################
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
