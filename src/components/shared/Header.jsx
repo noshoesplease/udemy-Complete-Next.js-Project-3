@@ -38,10 +38,8 @@ const Header = () => {
         dark
         expand="md"
       >
-        <NavbarBrand>
-          {/* <Link className="port-navbar-brand" href="/">
-            Devin Custodio
-          </Link> */}
+        <NavbarBrand className="port-navbar-brand" href="/">
+          Devin Custodio
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
