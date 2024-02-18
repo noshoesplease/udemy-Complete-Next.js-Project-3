@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useGetData = (url) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -15,10 +15,9 @@ export const useGetData = (url) => {
       } else {
         setData(result);
       }
-
       setLoading(false);
     }
-    fetchData();
-  }, [data]);
+    url &&  fetchData();
+  }, [url]);
   return { data, error, loading };
 };
