@@ -20,6 +20,13 @@ const BsNavLink = (props) => {
   );
 };
 
+const LoginLink = () => (
+  <span className="nav-link port-navbar-link clickable">Login</span>
+);
+const LogoutLink = () => (
+  <span className="nav-link port-navbar-link clickable">Logout</span>
+);
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -48,6 +55,14 @@ const Header = () => {
               <BsNavLink href={link.path} title={link.title} />
             </NavItem>
           ))}
+        </Nav>
+        <Nav navbar>
+          <NavItem className="port-navbar-item">
+            <LoginLink />
+          </NavItem>
+          <NavItem className="port-navbar-item">
+            <LogoutLink />
+          </NavItem>
         </Nav>
       </Collapse>
     </Navbar>
