@@ -1,8 +1,11 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
+import BasePage from "@/components/BasePage";
 export default function AboutPage() {
   return (
     <BaseLayout>
-      <h1>About Page</h1>
+      <BasePage>
+        <h1>About Page</h1>
+      </BasePage>
     </BaseLayout>
   );
 }

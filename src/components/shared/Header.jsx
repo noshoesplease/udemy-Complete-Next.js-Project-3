@@ -31,28 +31,26 @@ const Header = () => {
     { title: "CV", path: "/cv" },
   ];
   return (
-    <div>
-      <Navbar
-        className="port-navbar port-default absolute"
-        color="transparent"
-        dark
-        expand="md"
-      >
-        <NavbarBrand className="port-navbar-brand" href="/">
-          Devin Custodio
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            {links.map((link, index) => (
-              <NavItem key={index} className="port-navbar-item">
-                <BsNavLink href={link.path} title={link.title} />
-              </NavItem>
-            ))}
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+    <Navbar
+      className="port-navbar port-default absolute"
+      color="transparent"
+      dark
+      expand="md"
+    >
+      <NavbarBrand className="port-navbar-brand" href="/">
+        Devin Custodio
+      </NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="mr-auto" navbar>
+          {links.map((link, index) => (
+            <NavItem key={index} className="port-navbar-item">
+              <BsNavLink href={link.path} title={link.title} />
+            </NavItem>
+          ))}
+        </Nav>
+      </Collapse>
+    </Navbar>
   );
 };
 
