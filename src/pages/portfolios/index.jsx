@@ -1,13 +1,13 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
 import Link from "next/link";
-import { useGetPortfolios } from "@/actions";
+import { useGetData } from "@/actions";
  
 export default function PortfoliosPage() {
-  const { portfolios, error, loading } = useGetPortfolios();
+  const { data, error, loading } = useGetData("/api/v1/portfolios");
 
   const renderPortfolios = () => {
-    return portfolios.map((portfolio) => (
+    return data.map((portfolio) => (
       <li key={portfolio.id}>
         <Link href={`/portfolios/${portfolio.id}`}>{portfolio.title}</Link>
       </li>
@@ -19,7 +19,7 @@ export default function PortfoliosPage() {
       <div>
         <h1>Portfolios Page</h1>
         {loading && <p>Loading data...</p>}
-        {portfolios && <ul>{renderPortfolios()}</ul>}
+        {data && <ul>{renderPortfolios()}</ul>}
         {error && <div className="alert alert-danger">{error.message}</div>}
       </div>
     );

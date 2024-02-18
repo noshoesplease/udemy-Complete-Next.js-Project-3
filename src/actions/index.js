@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 
-export const useGetPortfolios = () => {
-  const [portfolios, setPortfolios] = useState([]);
+export const useGetData = (url) => {
+  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchPortfolios() {
-      const response = await fetch("http://localhost:3000/api/v1/portfolios");
+    async function fetchData() {
+      const response = await fetch(url);
       const result = await response.json();
 
       if (response.status !== 200) {
         setError(result);
       } else {
-        setPortfolios(result);
+        setData(result);
       }
 
       setLoading(false);
     }
-    fetchPortfolios();
-  }, [portfolios]);
-  return { portfolios, error, loading };
+    fetchData();
+  }, [data]);
+  return { data, error, loading };
 };
