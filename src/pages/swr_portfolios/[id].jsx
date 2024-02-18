@@ -4,14 +4,14 @@ import { useGetSWRData } from "@/actions";
 
 const PortfolioDetailPage = () => {
   const router = useRouter();
-  const { data: portfolio, error } = useGetSWRData(
+  const { data: portfolio, error, loading } = useGetSWRData(
     router.query.id ? `/api/v1/portfolios/${router.query.id}` : null
   );
 
   return (
     <BaseLayout>
       <h1>Portfolio Detail Page</h1>
-      {!portfolio && <p>Loading Data...</p>}
+      {loading && <p>Loading Data...</p>}
       {error && <div className="alert alert-danger">{error.message}</div>}
       {portfolio && (
         <>

@@ -31,4 +31,7 @@ const fetcher = (url) =>
       return result;
     }
   });
-export const useGetSWRData = (url) => useSWR(url, fetcher);
+export const useGetSWRData = (url) => {
+  const { data, error, ...rest } = useSWR(url, fetcher);
+  return { data, error, loading: !data && !error, ...rest };
+};

@@ -5,7 +5,7 @@ import { useGetSWRData } from "@/actions";
  
 export default function SWR_PortfoliosPage() {
 
-  const { data, error } = useGetSWRData("/api/v1/portfolios");
+  const { data, error, loading } = useGetSWRData("/api/v1/portfolios");
   
   const renderPortfolios = () => {
     return data.map((portfolio) => (
@@ -19,7 +19,7 @@ export default function SWR_PortfoliosPage() {
     return (
       <div>
         <h1>Portfolios Page</h1>
-        {!data && <p>Loading data...</p>}
+        {loading && <p>Loading data...</p>}
         {data && <ul>{renderPortfolios()}</ul>}
         {error && <div className="alert alert-danger">{error.message}</div>}
       </div>
