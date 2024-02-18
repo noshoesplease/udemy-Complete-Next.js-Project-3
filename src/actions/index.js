@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useSWR from "swr";
 
 export const useGetData = (url) => {
   const [data, setData] = useState();
@@ -17,7 +18,17 @@ export const useGetData = (url) => {
       }
       setLoading(false);
     }
-    url &&  fetchData();
+    url && fetchData();
   }, [url]);
   return { data, error, loading };
 };
+const fetcher = (url) =>
+  fetch(url).then(async (res) => {
+    const result = await res.json();
+    if (res.status !== 200) {
+      throw Promise.reject(result);
+    } else {
+      return result;
+    }
+  });
+export const useGetSWRData = (url) => useSWR(url, fetcher);

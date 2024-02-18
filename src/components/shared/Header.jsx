@@ -34,6 +34,7 @@ const Header = () => {
     { title: "Home", path: "/" },
     { title: "Blogs", path: "/blogs" },
     { title: "Portfolios", path: "/portfolios" },
+    { title: "SWR_Portfolios", path: "/swr_portfolios" },
     { title: "About", path: "/about" },
     { title: "CV", path: "/cv" },
   ];
