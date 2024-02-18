@@ -1,18 +1,10 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
+import BasePage from "@/components/BasePage";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
+import { useGetPortfolios } from "@/actions";
+ 
 export default function PortfoliosPage() {
-  const [portfolios, setPortfolios] = useState([]);
-
-  useEffect(() => {
-    async function fetchPortfolios() {
-      const response = await fetch("http://localhost:3000/api/v1/portfolios");
-      const data = await response.json();
-      setPortfolios(data);
-    }
-    fetchPortfolios();
-  }, [portfolios]);
+  const { portfolios, error, loading } = useGetPortfolios();
 
   const renderPortfolios = () => {
     return portfolios.map((portfolio) => (
@@ -22,10 +14,23 @@ export default function PortfoliosPage() {
     ));
   };
 
+  const Content = () => {
+    return (
+      <div>
+        <h1>Portfolios Page</h1>
+        {loading && <p>Loading data...</p>}
+        {portfolios && <ul>{renderPortfolios()}</ul>}
+        {error && <div className="alert alert-danger">{error.message}</div>}
+      </div>
+    );
+  }
+
+
   const render = (
     <BaseLayout>
-      <h1>Portfolios Page</h1>
-      <ul>{renderPortfolios()}</ul>
+      <BasePage>
+       <Content />
+      </BasePage>
     </BaseLayout>
   );
 

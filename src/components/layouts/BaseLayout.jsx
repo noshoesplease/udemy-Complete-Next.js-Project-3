@@ -6,7 +6,7 @@ const BaseLayout = props => {
     <div className="layout-container">
       <Header />
       <main className={`cover ${className}`}>
-        <div className="wrapper">
+        <div className="container-fluid">
           {children}
         </div>
       </main>

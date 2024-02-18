@@ -39,8 +39,7 @@ const Header = () => {
   ];
   return (
     <Navbar
-      className="port-navbar port-default absolute"
-      color="transparent"
+      className="port-navbar port-default"
       dark
       expand="md"
     >
